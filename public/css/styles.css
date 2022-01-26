@@ -8,17 +8,30 @@ body {
     margin: 0 auto;
     top: 90px;
     text-align: left;
-    height: 23em;
+    height: 20em;
     width: 20em;
     background:rgba(121, 120, 120, 0.5);
     border: 1.5px solid black;
     border-radius: 15px;
 }
 
-#box h1 {
+h1 {
     padding: 20px;
     margin: 0;
     text-align: center;
+}
+
+/* Sign-up box */
+#box2 {
+    position: relative;
+    margin: 0 auto;
+    top: 40px;
+    text-align: left;
+    height: 32em;
+    width: 20em;
+    background:rgba(121, 120, 120, 0.5);
+    border: 1.5px solid black;
+    border-radius: 15px;
 }
 
 #form {
@@ -30,6 +43,7 @@ body {
 #form input {
     height: 1.5em;
     width: 97%;
+    border-radius: 15px;
 }
 
 #form button {
@@ -40,4 +54,5 @@ body {
     padding: 0;
     margin: 0 auto;
     display: inline-block;
+    border-radius: 15px;
 }
