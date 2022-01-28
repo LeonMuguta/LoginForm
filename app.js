@@ -53,7 +53,6 @@ app.post("/sign-up", function(req, res) {
             email: email,
             password: password
         })
-        
         user.save();
     }
 

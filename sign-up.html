@@ -20,8 +20,9 @@
             <label for="password">Password :</label><br>
             <input type="password" name="password" id="password" required><br><br>
             <label for="confirmPassword">Confirm password :</label><br>
-            <input type="password" name="confirmPassword" id="confirmPassword" required><br><br>
-            <button type="submit">Sign Up</button><br>
+            <input type="password" name="confirmPassword" id="confirmPassword" required><br>
+            <p id="warning">Passwords do not match!</p>
+            <button type="submit" onclick="switchUp()">Sign Up</button><br>
             <p>Have an existing account? <a href="/">Log In</a></p>
         </form>
     </div>

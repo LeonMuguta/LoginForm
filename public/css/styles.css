@@ -56,3 +56,11 @@ h1 {
     display: inline-block;
     border-radius: 15px;
 }
+
+#warning {
+    border: 1px solid red;
+    background: #DD4A48;
+    color: #DA1212;
+    font-size: 15px;
+    display: none;
+}
