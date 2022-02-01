@@ -4,6 +4,8 @@ const mongoose = require("mongoose");
 
 const app = express();
 
+app.set('view engine', 'ejs');
+
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
@@ -19,21 +21,27 @@ const userSchema = new mongoose.Schema({
 const User = mongoose.model("newUser", userSchema);
 
 app.get("/", function(req, res) {
-    res.sendFile(__dirname + '/index.html');
+    res.render("index");
 });
 
 app.get("/sign-up", function(req, res) {
-    res.sendFile(__dirname + '/sign-up.html');
+    res.render("sign-up");
 });
 
 // Enabling an existing user to log in
-// app.post("/", function(req, res) {
-//     const email = req.body.email;
-//     const password = req.body.password;
+app.post("/", function(req, res) {
+    const enteredEmail = req.body.email;
+    const enteredPassword = req.body.password;
 
-//     console.log(email);
-//     console.log(password);
-// });
+    User.findOne({email: enteredEmail}, function (err, foundUser) {
+        if (err) {
+            console.log(err);
+        } else if (foundUser.password === enteredPassword) {
+            // Add successful log in landing page!!!!
+            res.send("<h1>You have successfully logged in</h1>");
+        }
+    });
+});
 
 // Registering new user when signing up
 app.post("/sign-up", function(req, res) {
@@ -44,8 +52,7 @@ app.post("/sign-up", function(req, res) {
     const confirmPassword = req.body.confirmPassword;
 
     if (password !== confirmPassword) {
-        console.log("Passwords are not the same");
-        res.redirect("/sign-up")
+        res.render("sign-up");
     } else {
         const user = new User({
             fName: firstName,
@@ -54,9 +61,10 @@ app.post("/sign-up", function(req, res) {
             password: password
         })
         user.save();
+        res.render("index");
     }
 
-    res.redirect("/")
+    // res.render("index");
 });
 
 app.listen(3000, function() {
