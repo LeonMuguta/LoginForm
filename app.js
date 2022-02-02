@@ -25,7 +25,7 @@ app.get("/", function(req, res) {
 });
 
 app.get("/sign-up", function(req, res) {
-    res.render("sign-up");
+    res.render("sign-up", {warningMessage: ""});
 });
 
 // Enabling an existing user to log in
@@ -37,8 +37,8 @@ app.post("/", function(req, res) {
         if (err) {
             console.log(err);
         } else if (foundUser.password === enteredPassword) {
-            // Add successful log in landing page!!!!
-            res.send("<h1>You have successfully logged in</h1>");
+            const userFName = foundUser.fName;
+            res.render("success", {userName: userFName});
         }
     });
 });
@@ -52,7 +52,7 @@ app.post("/sign-up", function(req, res) {
     const confirmPassword = req.body.confirmPassword;
 
     if (password !== confirmPassword) {
-        res.render("sign-up");
+        res.render("sign-up", {warningMessage: "Passwords do not match"});
     } else {
         const user = new User({
             fName: firstName,
@@ -63,8 +63,6 @@ app.post("/sign-up", function(req, res) {
         user.save();
         res.render("index");
     }
-
-    // res.render("index");
 });
 
 app.listen(3000, function() {

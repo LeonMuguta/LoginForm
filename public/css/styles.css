@@ -32,6 +32,7 @@ h1 {
     background:rgba(121, 120, 120, 0.5);
     border: 1.5px solid black;
     border-radius: 15px;
+    overflow: auto;
 }
 
 #form {
@@ -62,5 +63,4 @@ h1 {
     background: #DD4A48;
     color: #DA1212;
     font-size: 15px;
-    display: none;
 }
