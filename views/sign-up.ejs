@@ -11,19 +11,19 @@
     <div id="box2">
         <h1>WELCOME</h1>
         <form action="/sign-up" method="post" id="form">
-            <label for="fName">First name :</label><br>
-            <input type="text" name="fName" id="fName" required><br><br>
-            <label for="lName">Last name :</label><br>
+            <label for="username">Username :</label><br>
+            <input type="text" name="username" id="username" required><br><br>
+            <!-- <label for="lName">Last name :</label><br>
             <input type="text" name="lName" id="lName" required><br><br>
             <label for="email">E-mail :</label><br>
-            <input type="email" name="email" id="e-mail" required><br><br>
+            <input type="email" name="email" id="e-mail" required><br><br> -->
             <label for="password">Password :</label><br>
             <input type="password" name="password" id="password" required><br><br>
-            <label for="confirmPassword">Confirm password :</label><br>
+            <!-- <label for="confirmPassword">Confirm password :</label><br>
             <input type="password" name="confirmPassword" id="confirmPassword" required><br>
-            <% if(warningMessage !== "") { %>
-            <p id="warning"> <%= warningMessage %> </p>
-            <% } %>
+            <%# if(warningMessage !== "") { %>
+            <p id="warning"> <%# warningMessage %> </p>
+            <%# } %> -->
             <button type="submit">Sign Up</button><br>
             <p>Have an existing account? <a href="/">Log In</a></p>
         </form>
